@@ -3,13 +3,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Fractions {
-	public String setCharAt(String str, int index, String chr) {
+	public static String setCharAt(String str, int index, String chr) {
 		if (index > str.length() - 1)
 			return str;
 		return str.substring(0, index) + chr + str.substring(index + 1);
 	}
 
-	public String[] reduce(String num, String den) {
+	public static String[] reduce(String num, String den) {
 		if (num.startsWith("+")) {
 			num = num.substring(1);
 		}
@@ -23,7 +23,7 @@ public class Fractions {
 		return new String[] { neg ? "-" : "" + (Integer.parseInt(num) / g), (Integer.parseInt(den) / g) + "" };
 	}
 
-	public int gcd(int a, int b) {
+	public static int gcd(int a, int b) {
 		return b == 0 ? a : gcd(b, a % b);
 	}
 
@@ -71,7 +71,7 @@ public class Fractions {
 	// " ": " "
 	// };
 
-	public HashMap<String, String> superscript = new HashMap<String, String>() {
+	public static HashMap<String, String> superscript = new HashMap<String, String>() {
 		{
 			put("0", "⁰");
 			put("1", "¹");
@@ -153,7 +153,7 @@ public class Fractions {
 	// " ": " "
 	// };
 
-	public HashMap<String, String> subscript = new HashMap<String, String>() {
+	public static HashMap<String, String> subscript = new HashMap<String, String>() {
 		{
 			put("0", "₀");
 			put("1", "₁");
@@ -212,7 +212,7 @@ public class Fractions {
 	// "1/10": "⅒"
 	// };
 
-	public HashMap<String, String> fractions = new HashMap<String, String>() {
+	public static HashMap<String, String> fractions = new HashMap<String, String>() {
 		{
 			put("1/2", "½");
 			put("1/3", "⅓");
@@ -235,13 +235,13 @@ public class Fractions {
 		}
 	};
 
-	public String slash = "/";
+	public static String slash = "/";
 
-	public String[] getFraction(String numerator, String denominator) {
+	public static String[] getFraction(String numerator, String denominator) {
 		numerator = numerator.trim();
 		denominator = denominator.trim();
 
-		String orig = this.map(numerator, denominator);
+		String orig = Fractions.map(numerator, denominator);
 		String[] simp;
 		String simpString = "";
 		if (Pattern.compile("^[+-]?\\d+$").matcher(numerator).matches()) {
@@ -255,14 +255,14 @@ public class Fractions {
 		return new String[] { orig, simpString };
 	}
 
-	public String map(String num, String den) {
-		if (this.fractions.get(num + "/" + den) != null) {
-			return this.fractions.get(num + "/" + den);
+	public static String map(String num, String den) {
+		if (Fractions.fractions.get(num + "/" + den) != null) {
+			return Fractions.fractions.get(num + "/" + den);
 		}
 		String numOut = "";
 		String denOut = "";
 		for (String val : num.split("")) {
-			String correspondingNum = this.superscript.get(val);
+			String correspondingNum = Fractions.superscript.get(val);
 			if (correspondingNum == null) {
 				throw new Error();
 			}
@@ -270,16 +270,16 @@ public class Fractions {
 		}
 		System.out.println(den);
 		for (String val : den.split("")) {
-			String correspondingNun = this.subscript.get(val);
+			String correspondingNun = Fractions.subscript.get(val);
 			if (correspondingNun == null) {
 				throw new Error();
 			}
 			denOut += correspondingNun;
 		}
-		return numOut + this.slash + denOut;
+		return numOut + Fractions.slash + denOut;
 	}
 
-	public String replaceFractionsInString(String str) {
+	public static String replaceFractionsInString(String str) {
 		// var fractions = str.match(/(?<=\s|^)[-)(+0-9x]+\/[-)(+0-9x]+(?=\s|$)/g);
 		List<String> allMatches = new ArrayList<String>();
 		Pattern p = Pattern.compile("(?<=\\s|^)[-)(+0-9x]+/[-)(+0-9x]+(?=\\s|$)");
@@ -295,14 +295,14 @@ public class Fractions {
 			if (fraction.startsWith("(") &&
 					fraction.endsWith(")") &&
 					fraction.length() != 3) {
-				String num = setCharAt(fraction.split("/")[0], 0, "");
-				String den = setCharAt(fraction.split("/")[1], fraction.split("/")[1].length() - 1, "");
+				String num = Fractions.setCharAt(fraction.split("/")[0], 0, "");
+				String den = Fractions.setCharAt(fraction.split("/")[1], fraction.split("/")[1].length() - 1, "");
 				String[] replacement = getFraction(num, den);
 				if (replacement[0].charAt(0) == "⁻".charAt(0)) {
-					replacement[0] = setCharAt(replacement[0], 0, "-");
+					replacement[0] = Fractions.setCharAt(replacement[0], 0, "-");
 				}
 				if (replacement[1].charAt(0) == "⁻".charAt(0)) {
-					replacement[1] = setCharAt(replacement[1], 0, "-");
+					replacement[1] = Fractions.setCharAt(replacement[1], 0, "-");
 				}
 				// str = str.replace(fraction, replacement[1] || replacement[0]);
 				str = str.replace(fraction,
@@ -321,7 +321,6 @@ public class Fractions {
 	}
 
 	public static void main(String[] args) {
-		Fractions f = new Fractions();
-		System.out.println(f.replaceFractionsInString("I have 4/3 apples and 2/5 oranges"));
+		System.out.println(Fractions.replaceFractionsInString("I have 4/3 apples and 2/5 oranges"));
 	}
 }
