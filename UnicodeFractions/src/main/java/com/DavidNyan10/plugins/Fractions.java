@@ -197,10 +197,10 @@ public class Fractions {
 				String num = Fractions.setCharAt(fraction.split("/")[0], 0, "");
 				String den = Fractions.setCharAt(fraction.split("/")[1], fraction.split("/")[1].length() - 1, "");
 				String[] replacement = getFraction(num, den);
-				if (replacement[0].charAt(0) == "⁻".charAt(0)) {
+				if (replacement[0].charAt(0) == Character.toString('\u207B').charAt(0)) {
 					replacement[0] = Fractions.setCharAt(replacement[0], 0, "-");
 				}
-				if (replacement[1].charAt(0) == "⁻".charAt(0)) {
+				if (replacement[1].charAt(0) == Character.toString('\u207B').charAt(0)) {
 					replacement[1] = Fractions.setCharAt(replacement[1], 0, "-");
 				}
 				// str = str.replace(fraction, replacement[1] || replacement[0]);
