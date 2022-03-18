@@ -220,8 +220,4 @@ public class Fractions {
 		}
 		return str;
 	}
-
-	public static void main(String[] args) {
-		System.out.println(Fractions.replaceFractionsInString("I have 4/3 apples and 2/5 oranges"));
-	}
 }
