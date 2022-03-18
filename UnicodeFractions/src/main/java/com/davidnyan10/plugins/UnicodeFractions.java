@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 import dalvik.system.DexClassLoader;
 import top.canyie.pine.utils.ReflectionHelper;
 
-import daveuwu.Fractions;
+import util.Fractions;
 
 @SuppressWarnings("unused")
 @AliucordPlugin
@@ -53,4 +53,3 @@ public class UnicodeFractions extends Plugin {
 	}
 
 }
-// renamed a folder to prevent conflicts
