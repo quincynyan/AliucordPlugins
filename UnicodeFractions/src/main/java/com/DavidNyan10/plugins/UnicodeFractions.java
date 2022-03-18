@@ -28,31 +28,28 @@ import daveuwu.Fractions;
 @SuppressWarnings("unused")
 @AliucordPlugin
 public class UnicodeFractions extends Plugin {
-    public static final Logger logger = new Logger("UnicodeFractions");
-    @Override
-    public void start(Context context) {
-        patcher.patch("com.discord.models.message.Message","getContent",null,new Hook(cf -> {
-            Message _this =(Message) cf.thisObject;
+	public static final Logger logger = new Logger("UnicodeFractions");
 
-            String cont = null;
+	@Override
+	public void start(Context context) {
+		patcher.patch("com.discord.models.message.Message", "getContent", null, new Hook(cf -> {
+			Message _this = (Message) cf.thisObject;
 
-                try {
-                    cont = (String) ReflectUtils.getField(_this,"content");
-                } catch (Exception e) {}
-				cf.setResult(Fractions.replaceFractionsInString(cont));
-            }
+			String cont = null;
 
-        }));
+			try {
+				cont = (String) ReflectUtils.getField(_this, "content");
+			} catch (Exception e) {
+			}
+			cf.setResult(Fractions.replaceFractionsInString(cont));
 
-    }
+		}));
 
+	}
 
-
-
-
-    @Override
-    public void stop(Context context) {
-        patcher.unpatchAll();
-    }
+	@Override
+	public void stop(Context context) {
+		patcher.unpatchAll();
+	}
 
 }
