@@ -53,3 +53,4 @@ public class UnicodeFractions extends Plugin {
 	}
 
 }
+// renamed a folder to prevent conflicts
