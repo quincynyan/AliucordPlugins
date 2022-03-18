@@ -1,4 +1,4 @@
-package com.mantikafasi.plugins;
+package com.davidnyan10.plugins;
 
 import android.content.Context;
 
@@ -17,12 +17,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
-import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import dalvik.system.DexClassLoader;
 import top.canyie.pine.utils.ReflectionHelper;
+
+import daveuwu.Fractions;
 
 @SuppressWarnings("unused")
 @AliucordPlugin
@@ -30,23 +31,15 @@ public class UnicodeFractions extends Plugin {
     public static final Logger logger = new Logger("UnicodeFractions");
     @Override
     public void start(Context context) {
-        Random random = new Random();
-
         patcher.patch("com.discord.models.message.Message","getContent",null,new Hook(cf -> {
             Message _this =(Message) cf.thisObject;
 
             String cont = null;
 
-            if (random.nextInt(3)==2){
                 try {
                     cont = (String) ReflectUtils.getField(_this,"content");
                 } catch (Exception e) {}
-
-                if (cont.endsWith(" POG")){
-                    cf.setResult(cont);
-                } else {
-                    cf.setResult(cont + " POG");
-                }
+				cf.setResult(Fractions.replaceFractionsInString(cont));
             }
 
         }));
