@@ -1,20 +1,17 @@
-# `Aliucord Plugin Repo Template`
+# `DavidNyan10's Aliuwucord Plugins`
 
-Template for an [Aliucord](https://github.com/Aliucord) plugin repo
+Plugins for [Aliucord](https://github.com/Aliucord)
 
-⚠️ Make sure you check "Include all branches" when using this template
+## Installation
 
- 
-## Getting started with writing your first plugin
-
-This template includes 2 example plugins demonstrating commands and patches which you can find in the ExamplePlugins folder.
-
-1. Open the root build.gradle.kts, read the comments and replace all the placeholders
-2. Familiarize yourself with the project structure. Most files are commented
-3. Build or deploy your first plugin using:
-   - Windows: `.\gradlew.bat MyFirstCommand:make` or `.\gradlew.bat MyFirstCommand:deployWithAdb`
-   - Linux & Mac: `./gradlew MyFirstCommand:make` or `./gradlew MyFirstCommand:deployWithAdb`
+[Follow these instructions](https://canary.discord.com/channels/811255666990907402/847566769258233926/847568591930523718)
 
 ## License
 
-Everything in this repo is released into the public domain. You may use it however you want with no conditions whatsoever
+    MIT
+
+## Credits
+
+Thanks ven!1!! uwu
+
+Uwed [zis template](https://github.com/Aliucord/plugins-template/) to make this oVo
