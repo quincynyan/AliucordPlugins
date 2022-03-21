@@ -8,7 +8,7 @@ Plugins for [Aliucord](https://github.com/Aliucord)
 
 ## License
 
-    MIT
+	MIT
 
 ## Credits
 
