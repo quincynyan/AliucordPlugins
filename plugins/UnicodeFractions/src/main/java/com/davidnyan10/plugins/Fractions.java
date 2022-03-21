@@ -1,4 +1,4 @@
-package util;
+package com.davidnyan10.plugins;
 
 import java.util.*;
 import java.util.regex.Matcher;

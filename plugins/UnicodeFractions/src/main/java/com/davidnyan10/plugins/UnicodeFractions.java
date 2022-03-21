@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 import dalvik.system.DexClassLoader;
 import top.canyie.pine.utils.ReflectionHelper;
 
-import util.Fractions;
+import com.davidnyan10.plugins.Fractions;
 
 @SuppressWarnings("unused")
 @AliucordPlugin
@@ -38,7 +38,7 @@ public class UnicodeFractions extends Plugin {
 			String cont = null;
 
 			try {
-				cont = (String) ReflectUtils.getField(_this, "content");
+				cont = cf.getResult()
 			} catch (Exception e) {
 			}
 			cf.setResult(Fractions.replaceFractionsInString(cont));
