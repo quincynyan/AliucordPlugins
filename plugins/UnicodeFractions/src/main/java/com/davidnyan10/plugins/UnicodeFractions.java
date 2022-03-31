@@ -7,7 +7,7 @@ import com.aliucord.annotations.AliucordPlugin;
 import com.aliucord.entities.Plugin;
 import com.aliucord.fragments.SettingsPage;
 import com.aliucord.patcher.Hook;
-import com.aliucord.patcher.PinePatchFn;
+import com.aliucord.patcher.InsteadHook;
 import com.aliucord.utils.ReflectUtils;
 import com.discord.models.message.Message;
 import com.discord.widgets.chat.input.WidgetChatInputDiscoveryCommandsModel;
@@ -21,7 +21,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import dalvik.system.DexClassLoader;
-import top.canyie.pine.utils.ReflectionHelper;
+
 
 import com.davidnyan10.plugins.Fractions;
 
@@ -38,7 +38,7 @@ public class UnicodeFractions extends Plugin {
 			String cont = null;
 
 			try {
-				cont = cf.getResult()
+				cont = cf.getResult().toString();
 			} catch (Exception e) {
 			}
 			cf.setResult(Fractions.replaceFractionsInString(cont));
