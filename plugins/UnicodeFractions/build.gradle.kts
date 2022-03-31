@@ -10,10 +10,10 @@ aliucord {
 		First release of Unicode Fractions
 	""".trimIndent())
 	// Image or Gif that will be shown at the top of your changelog page
-	// changelogMedia.set("https://cool.png")
+	changelogMedia.set("https://img.youtube.com/vi/4SkLOOm_a4M/0.jpg")
 
 	// Add additional authors to this plugin
-	 author("DavidNyan10#8581", 592228909052067865)
+	author("DavidNyan10#8581", 592228909052067865)
 	// author("Name", 0)
 
 	// Excludes this plugin from the updater, meaning it won't show up for users.
