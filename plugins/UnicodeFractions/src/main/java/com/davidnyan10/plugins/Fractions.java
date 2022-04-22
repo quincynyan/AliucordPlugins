@@ -146,9 +146,13 @@ public class Fractions {
 		String[] simp;
 		String simpString = "";
 		if (Pattern.compile("^[+-]?\\d+$").matcher(numerator).matches()) {
-			simp = reduce(numerator, denominator);
-			// System.out.println("reducing " + orig + " to " + simp);
-			simpString = map(simp[0], simp[1]);
+			try {
+				simp = reduce(numerator, denominator);
+				// System.out.println("reducing " + orig + " to " + simp);
+				simpString = map(simp[0], simp[1]);
+			} catch (Exception e) {
+				simpString = "";
+			}
 		}
 		if (simpString == orig) {
 			simpString = "";
