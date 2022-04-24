@@ -173,7 +173,7 @@ public class Fractions {
 			}
 			numOut += correspondingNum;
 		}
-		System.out.println(den);
+		// // System.out.println(den);
 		for (String val : den.split("")) {
 			String correspondingNun = Fractions.subscript.get(val);
 			if (correspondingNun == null) {
