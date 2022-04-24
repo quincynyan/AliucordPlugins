@@ -1,4 +1,4 @@
-version = "1.1.0" // Plugin version. Increment this to trigger the updater
+version = "1.2.0" // Plugin version. Increment this to trigger the updater
 description = "Create Unicode fractions with any numerator and denominator" // Plugin description that will be shown to user
 
 aliucord {
@@ -13,6 +13,11 @@ aliucord {
 
 		First actual official release
 		Fix datatype errors that didn't exist in js
+
+		1.2.0
+
+		Final fix (I think)
+		Fix build.yml in .github/workflows/
 	""".trimIndent())
 	// Image or Gif that will be shown at the top of your changelog page
 	changelogMedia.set("https://img.youtube.com/vi/4SkLOOm_a4M/0.jpg")
