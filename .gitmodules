@@ -1,0 +1,3 @@
+[submodule "plugins/UnicodeFractions/src/main/java/com/davidnyan10/plugins/UnicodeFractions"]
+	path = plugins/UnicodeFractions/src/main/java/com/davidnyan10/plugins/UnicodeFractions
+	url = https://github.com/DavidNyan10/UnicodeFractions/
